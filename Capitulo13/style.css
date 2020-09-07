@@ -1,0 +1,21 @@
+body{
+    margin: auto;
+    padding: 20px;
+    font-style: oblique;
+}
+label{
+    color: darkblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+form{
+text-align: center;
+width:300px;
+margin:auto;
+background-color: aqua;
+border:2px solid #F00;
+padding:5px;
+}
+
+#info{
+    text-align: center;
+}

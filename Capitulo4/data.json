@@ -1,0 +1,14 @@
+{
+    "Walter":{
+        "nombre" : "Walter",
+        "apellido" : "Gutierrez",
+        "edad" : 25,
+        "pais" : "Latvia"
+    },
+    "San Juan":{
+        "nombre" : "San Juan",
+        "apellido" : "Bautista",
+        "edad" : 22,
+        "pais" : "España"
+    }
+}

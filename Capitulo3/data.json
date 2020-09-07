@@ -1,0 +1,38 @@
+[
+{
+    "nombre" : "Walter",
+    "apellido" : "Gutierrez",
+    "edad" : 25,
+    "pais" : "Latvia"
+},
+{
+    "nombre" : "San Juan",
+    "apellido" : "Bautista",
+    "edad" : 22,
+    "pais" : "España"
+},
+{
+    "nombre" : "Ariel",
+    "apellido" : "Becerra",
+    "edad" : 23,
+    "pais" : "Nicaragua"
+},
+{
+    "nombre" : "John",
+    "apellido" : "Vedder",
+    "edad" : 26,
+    "pais" : "Reino Unido"
+},
+{
+    "nombre" : "Bjorn",
+    "apellido" : "Strid",
+    "edad" : 24,
+    "pais" : "Suecia"
+},
+{
+    "nombre" : "Valeriy",
+    "apellido" : "Chubuk",
+    "edad" : 27,
+    "pais" : "Ucrania"
+}
+]
