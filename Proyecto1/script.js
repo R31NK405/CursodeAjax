@@ -21,3 +21,19 @@ function getAjax() {
     xhr.open("get","process.php", true);//->Informacion basica del Request
     xhr.send();//>enviar datos al server
 }
+
+function mostrarUsuarios(nombre) {
+    var xhr;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    }else{
+        xhr=new ActiveXObject();
+    }
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState==4 && xhr.status==200) {
+            result.innerHTML=xhr.responseText;
+        }
+    }
+    xhr.open("get","process.php?nombre="+nombre, true);//->Informacion basica del Request conjunto a un parametro
+    xhr.send();//>enviar datos al server
+}
