@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto 1</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Proyecto</title>
+<link rel="stylesheet" type="text/css" href="style.css">    
 </head>
-<body onload="getAjax();">
-    <input type="text" id="nombre" placeholder="ingrese un nombre" onkeyup="mostrarUsuarios(this.value);">
-    <div id="show"></div>
+<body onload="getAjax()">
+ 
+<form>
+Buscar Cliente: 
+<input type="text" id="texto" placeholder="Ingresar nombre" onkeyup="mostrarUsuarios(this.value)" /><br/><br/>
+</form>
+ 
+<div id="show"></div>
 </body>
 <script src="script.js"></script>
+
 </html>

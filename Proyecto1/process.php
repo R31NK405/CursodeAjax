@@ -1,7 +1,7 @@
 <?php
-require "conexion.php";
-//$nombre=$_GET["nombre"];
-$nombre = empty($_GET["nombre"]) ? ""  : $_GET["nombre"]; 
+require 'conexion.php';
+$nombre=$_GET["nombre"];
+//$nombre = empty($_GET["nombre"]) ? ""  : $_GET["nombre"]; 
 if(!empty($nombre)){
  $cliente = mysqli_real_escape_string($con, $nombre);
  $resultado = mysqli_query($con, "SELECT * FROM persona WHERE nombre LIKE '%".$cliente."%'");
@@ -28,4 +28,3 @@ function mostrarDatos(){
         mysqli_close($con);//cierre de la conexion
 }
 ?>
-
