@@ -1,39 +1,49 @@
-//Se hace una referencia al DIV, para traer los resultados desde la base de datos
-var result= document.getElementById("show");
-
-function getAjax() {
-    //declaracion de la variable
-    var xhr; 
-    //verificacion de navegadores
-    if (window.XMLHttpRequest) {
-        xhr = new XMLHttpRequest();
-    } else {
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");    
-    }
-    //verificacion de estado, confirmacion de peticion
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            //si la peticion ha sido finalizada y exitosa se enviara una respuesta a la BD
-            result.innerHTML = xhr.responseText;
-        }
-    }
-
-    xhr.open("get","process.php", true);//->Informacion basica del Request
-    xhr.send();//>enviar datos al server
-}
-
-function mostrarUsuarios(nombre) {
+function mostrarUsuario(){
+    /*usuario, el parametro del input*/
+    var resultado=document.getElementById("info");
     var xhr;
-    if (window.XMLHttpRequest) {
-        xhr = new XMLHttpRequest();
-    }else{
-        xhr=new ActiveXObject();
+    /*Para navegadores modernos*/
+    if(window.XMLHttpRequest){
+     xhr=new XMLHttpRequest();
+    }else{/*Para nagevadores antiguos*/
+     xhr=new ActiveXObject("Microsoft.XMLHTTP");
     }
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState==4 && xhr.status==200) {
-            result.innerHTML=xhr.responseText;
-        }
+    /*Para procesar la informacion del servidor*/
+    xhr.onreadystatechange=function(){
+     /*Si ya finalizo y es exitosa haga esto*/
+     if(xhr.readyState==4&&xhr.status==200){
+      var datos=xhr.responseText;
+      /*innerHTML, significa escribir dentro del div*/
+      resultado.innerHTML=datos;
+     }
     }
-    xhr.open("get","process.php?nombre="+nombre, true);//->Informacion basica del Request conjunto a un parametro
-    xhr.send();//>enviar datos al server
-}
+    xhr.open("GET","process.php",true);
+    xhr.send();/*Es para enviar nuestra petición*/
+    /*La variable nombre va a almacenar el nombre que digito el usuario*/
+   }
+   function buscarUsuario(nombre){
+    /*usuario, el parametro del input*/
+    var resultado=document.getElementById("info");
+    var xhr;
+    if(window.XMLHttpRequest){/*Para navegadores modernos*/
+     xhr=new XMLHttpRequest();
+    }else{/*Para nagevadores antiguos*/
+     xhr=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if(nombre==""){/*Si esta vacio, que muestre un mensaje en blanco, 
+     es decir que el usuario no ingreso ningun nombre*/
+     resultado.innerHTML="";/*Aqui muestra un mensaje en blanco*/
+    }
+    /*Para procesar la informacion del servidor*/
+    xhr.onreadystatechange=function(){
+     /*Si ya finalizo y es exitosa haga esto*/
+     if(xhr.readyState==4&&xhr.status==200){
+      var datos=xhr.responseText;
+      /*innerHTML, significa escribir dentro del div*/
+      resultado.innerHTML=datos;
+     }
+    }
+    xhr.open("GET","process.php?nombre="+nombre,true);
+    xhr.send();/*Es para enviar nuestra petición*/
+    /*La variable nombre va a almacenar el nombre que digito el usuario*/
+   }

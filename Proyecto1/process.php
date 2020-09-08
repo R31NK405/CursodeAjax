@@ -1,30 +1,29 @@
 <?php
-require 'conexion.php';
-$nombre=$_GET["nombre"];
-//$nombre = empty($_GET["nombre"]) ? ""  : $_GET["nombre"]; 
-if(!empty($nombre)){
- $cliente = mysqli_real_escape_string($con, $nombre);
- $resultado = mysqli_query($con, "SELECT * FROM persona WHERE nombre LIKE '%".$cliente."%'");
+  /*Que es obligatorio y que si no se encuentra la página no funciona, el script no se sigue ejecutando.*/
+  require 'conexion.php';
 
- while($fila = mysqli_fetch_assoc($resultado))
- {
-  echo '<div class="miClase">' .$fila['nombre'] . '</div>';
+ $name = empty($_GET["nombre"]) ? ""  : $_GET["nombre"]; 
+ /*Que si el nombre no está vacio, es decir que el usuario ya digito algún nombre*/
+ if(!empty($name)){
+     /*El nombre de la variable que nos permite conecta con la base de datos, y el valor obtenido del get*/
+  $cliente=mysqli_real_escape_string($con,$name);
+  $resultado=mysqli_query($con,"SELECT * FROM persona WHERE nombre LIKE '%$cliente%'");
+  while($fila = mysqli_fetch_assoc($resultado))
+  {
+   echo '<div class="myClass">' .$fila['nombre'] . '</div>';
+  }
+  mysqli_close($con);
+ }else{
+     /*Si el usuario no ha digitado ningun nombre*/
+  mostrarUsuario();
+ }
+ function mostrarUsuario(){
+    require 'conexion.php';
+  $resultado=mysqli_query($con,"SELECT * FROM persona");
+  while($fila = mysqli_fetch_assoc($resultado))
+  {
+   echo '<div class="myClass">' .$fila['nombre'] . '</div>';
+  }
  }
  mysqli_close($con);
-}else{
-    mostrarDatos();
-}
-
-function mostrarDatos(){
-    require 'conexion.php';
-
-    //realizar consultas desde la base de datos
-    $result=mysqli_query($con, "SELECT * FROM persona"); 
-
-    while ($row= mysqli_fetch_assoc($result)) {
-        echo "<div class=myClass>". $row['nombre'] . " " . "</div>";//extraccion de los nombres en la base de datos
-        //echo '<input type="hidden" disabled value="'.$row['apellido'].'">';
-        }
-        mysqli_close($con);//cierre de la conexion
-}
 ?>

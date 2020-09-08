@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Proyecto</title>
-<link rel="stylesheet" type="text/css" href="style.css">    
+<html lang="en">
+<head></head>
+ <meta charset="UTF-8">
+ <title>Ajax Seccion 15 PARTE 2 - Buscar usuarios </title>
+ <script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
 </head>
-<body onload="getAjax()">
- 
-<form>
-Buscar Cliente: 
-<input type="text" id="texto" placeholder="Ingresar nombre" onkeyup="mostrarUsuarios(this.value)" /><br/><br/>
-</form>
- 
-<div id="show"></div>
-</body>
-<script src="script.js"></script>
+<body onload="mostrarUsuario()">
+ Buscar Cliente: <input type="text" id="name" placeholder="Digite su nombre" onkeyup="buscarUsuario(this.value)"> 
+ <div id="info"></div>
 
+</body>
 </html>
