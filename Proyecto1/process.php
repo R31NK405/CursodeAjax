@@ -7,9 +7,9 @@ if(!empty($nombre)){
  $cliente = mysqli_real_escape_string($con, $nombre);
  $resultado = mysqli_query($con, "SELECT * FROM persona WHERE nombre LIKE '%".$cliente."%'");
 
- while($fila = mysqli_fetch_assoc($resultado))
+ while($row = mysqli_fetch_assoc($resultado))
  {
-    echo '<div class="myClass" onclick="toggleOverlay(this)">' .$fila['nombre'] . '</div>';
+    echo '<div class="myClass" onclick="toggleOverlay(this)">' .$row['nombre'] . '</div>';
     echo '<input type="hidden" disabled value="'.$row['apellido'].'">';
     echo '<input type="hidden" disabled value="'.$row['Fecha'].'">';
     echo '<input type="hidden" disabled value="'.$row['edad'].'">';

@@ -45,7 +45,6 @@ function getAjax() {
       }
       var nombre = elemento.innerHTML;
       var apellido = elemento.nextSibling.value;
-      var Fecha = elemento.nextSibling.value;
-      var edad = elemento.nextSibling.value;
+
       info.innerHTML = "<strong>Nombre: </strong>" + nombre + "<br>" + "<strong>Apellido: </strong>" + apellido;
    } 
