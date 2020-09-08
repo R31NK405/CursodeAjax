@@ -47,3 +47,18 @@ function mostrarUsuario(){
     xhr.send();/*Es para enviar nuestra petición*/
     /*La variable nombre va a almacenar el nombre que digito el usuario*/
    }
+
+   function toggleOverlay(elemento) {
+      var overlay = document.getElementById("overlay");
+      var infoUsuario = document.getElementById("infoUsuario");
+      var info = document.getElementById("info");
+
+      overlay.style.opacity = .6;
+      if (overlay.style.display == "block") {
+          overlay.style.display = "none";
+          infoUsuario.style.display = "none";
+      }else{
+        overlay.style.display = "block";
+        infoUsuario.style.display = "block"; 
+      }
+   }

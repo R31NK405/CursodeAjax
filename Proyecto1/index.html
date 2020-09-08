@@ -2,13 +2,21 @@
 <html lang="en">
 <head></head>
  <meta charset="UTF-8">
- <title>Ajax Seccion 15 PARTE 2 - Buscar usuarios </title>
+ <title>Proyecto I </title>
  <script src="script.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body onload="mostrarUsuario()">
- Buscar Cliente: <input type="text" id="name" placeholder="Digite su nombre" onkeyup="buscarUsuario(this.value)"> 
- <div id="info"></div>
+ Buscar estudiante: <input type="text" id="name" placeholder="Digite su nombre" onkeyup="buscarUsuario(this.value)"> 
+ <div id="wrapper">
+    <div id="info"></div>
+ </div>
 
+ <div id="overlay"></div>
+<div id="infoUsuario">
+ <div id="datosPersonales">Informacion Personal</div>
+ <p id="info"></p>
+ <button onclick="toggleOverlay()">Cerrar</button>
+</div>
 </body>
 </html>

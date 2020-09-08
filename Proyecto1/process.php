@@ -10,7 +10,7 @@
   $resultado=mysqli_query($con,"SELECT * FROM persona WHERE nombre LIKE '%$cliente%'");
   while($fila = mysqli_fetch_assoc($resultado))
   {
-   echo '<div class="myClass">' .$fila['nombre'] . '</div>';
+   echo '<div class="myClass" onclick="toggleOverlay()">' .$fila['nombre'] . '</div>';
   }
   mysqli_close($con);
  }else{
@@ -22,7 +22,7 @@
   $resultado=mysqli_query($con,"SELECT * FROM persona");
   while($fila = mysqli_fetch_assoc($resultado))
   {
-   echo '<div class="myClass">' .$fila['nombre'] . '</div>';
+   echo '<div class="myClass" onclick="toggleOverlay()">' .$fila['nombre'] . '</div>';
   }
  }
  mysqli_close($con);
