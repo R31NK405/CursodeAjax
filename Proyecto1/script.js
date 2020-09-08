@@ -1,54 +1,36 @@
-function mostrarUsuario(){
-    /*usuario, el parametro del input*/
-    var resultado=document.getElementById("info");
+var result = document.getElementById("show");
+function getAjax() {
     var xhr;
-    /*Para navegadores modernos*/
-    if(window.XMLHttpRequest){
-     xhr=new XMLHttpRequest();
-    }else{/*Para nagevadores antiguos*/
-     xhr=new ActiveXObject("Microsoft.XMLHTTP");
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest;
+    }else{
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    /*Para procesar la informacion del servidor*/
-    xhr.onreadystatechange=function(){
-     /*Si ya finalizo y es exitosa haga esto*/
-     if(xhr.readyState==4&&xhr.status==200){
-      var datos=xhr.responseText;
-      /*innerHTML, significa escribir dentro del div*/
-      resultado.innerHTML=datos;
-     }
-    }
-    xhr.open("GET","process.php",true);
-    xhr.send();/*Es para enviar nuestra petición*/
-    /*La variable nombre va a almacenar el nombre que digito el usuario*/
-   }
-   function buscarUsuario(nombre){
-    /*usuario, el parametro del input*/
-    var resultado=document.getElementById("info");
-    var xhr;
-    if(window.XMLHttpRequest){/*Para navegadores modernos*/
-     xhr=new XMLHttpRequest();
-    }else{/*Para nagevadores antiguos*/
-     xhr=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    if(nombre==""){/*Si esta vacio, que muestre un mensaje en blanco, 
-     es decir que el usuario no ingreso ningun nombre*/
-     resultado.innerHTML="";/*Aqui muestra un mensaje en blanco*/
-    }
-    /*Para procesar la informacion del servidor*/
-    xhr.onreadystatechange=function(){
-     /*Si ya finalizo y es exitosa haga esto*/
-     if(xhr.readyState==4&&xhr.status==200){
-      var datos=xhr.responseText;
-      /*innerHTML, significa escribir dentro del div*/
-      resultado.innerHTML=datos;
-     }
-    }
-    xhr.open("GET","process.php?nombre="+nombre,true);
-    xhr.send();/*Es para enviar nuestra petición*/
-    /*La variable nombre va a almacenar el nombre que digito el usuario*/
-   }
 
-   function toggleOverlay(elemento) {
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                result.innerHTML=xhr.responseText;
+            }
+        }
+        xhr.open("GET", "process.php", true);
+        xhr.send();
+    }
+    function mostrarUsuarios(nombre) {
+        var xhr;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        }else{
+            xhr=new ActiveXObject();
+        }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState==4 && xhr.status==200) {
+                result.innerHTML=xhr.responseText;
+            }
+        }
+        xhr.open("get","process.php?nombre="+nombre, true);//->Informacion basica del Request conjunto a un parametro
+        xhr.send();//>enviar datos al server
+    } 
+      function toggleOverlay(elemento) {
       var overlay = document.getElementById("overlay");
       var infoUsuario = document.getElementById("infoUsuario");
       var info = document.getElementById("info");
@@ -61,4 +43,9 @@ function mostrarUsuario(){
         overlay.style.display = "block";
         infoUsuario.style.display = "block"; 
       }
-   }
+      var nombre = elemento.innerHTML;
+      var apellido = elemento.nextSibling.value;
+      var Fecha = elemento.nextSibling.value;
+      var edad = elemento.nextSibling.value;
+      info.innerHTML = "<strong>Nombre: </strong>" + nombre + "<br>" + "<strong>Apellido: </strong>" + apellido;
+   } 
