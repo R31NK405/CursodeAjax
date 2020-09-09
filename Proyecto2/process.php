@@ -6,7 +6,6 @@ $personas =$_GET["personas"];
 //$personas = empty($_GET["personas"]) ? ""  : $_GET["personas"];
 
 $nombreId="nombreId";
-$apellidoId="apellidoId";
 $nacionalidadId="nacionalidadId";
 $actualizar="actualizar";
 $eliminar="eliminar";
@@ -19,7 +18,6 @@ if ($personas == "personas") {
    $tabla .='<tr>';
    $tabla .='<th>Usuario</th>';
    $tabla .='<th>Nombre</th>';
-   $tabla .='<th>Apellido</th>';
    $tabla .='<th>Nacionalidad</th>';
    $tabla .='<th>Editar</th>';
    $tabla .='<th>Eliminar</th>';
@@ -28,11 +26,10 @@ if ($personas == "personas") {
         $tabla .='<tr>';
         $tabla .='<td>'.$row['id'].'</td>';
         $tabla.='<td id="'.$nombreId.$row['id'].'">'.$row['nombre'].'</td>';
-        $tabla .='<td id="'.$apellidoId.$row['id'].'">'.$row['apellido'].'</td>';
         $tabla.='<td id="'.$nacionalidadId.$row['id'].'">'.$row['nacionalidad'].'</td>';
-        $tabla .='<td><input type="button" value="modificar" class="btn btn-default"></td>';
-        $tabla .='<td><input type="button" value="eliminar" class="btn btn-danger"></td>';
-        $tabla .='<td><input type="button" value="actualizar" class="btn btn-primary" style=display:none;></td>';
+        $tabla .='<td><input type="button" id="'.$row['id'].'" onclick="editarUsuarios(this.id)" value="Editar" class="btn btn-default"></td>';
+        $tabla .='<td><input type="button" id="'.$eliminar.$row['id'].'" value="Eliminar" class="btn btn-danger"></td>';
+        $tabla .='<td><input type="button"  id="'.$actualizar.$row['id'].'"  value="Actualizar" class="btn btn-primary" style=display:none;></td>';
         $tabla .='</tr>';
     }
 }

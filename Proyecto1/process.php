@@ -1,7 +1,7 @@
 <?php
 require "conexion.php";
-
-$nombre = empty($_GET["nombre"]) ? ""  : $_GET["nombre"];
+$nombre = $_GET["nombre"];
+//$nombre = empty($_GET["nombre"]) ? ""  : $_GET["nombre"];
 
 if(!empty($nombre)){
  $cliente = mysqli_real_escape_string($con, $nombre);
