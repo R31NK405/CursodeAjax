@@ -35,3 +35,21 @@ function editarUsuarios(usuarioId) {
        document.getElementById(actualizar).style.display="block";
     }
 }
+
+function actualizarUsuario(usuarioId) {
+    var xhr;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    var nombreActualizado = document.getElementById("nombreId" + usuarioId + "-editar").value;
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            getAjax();
+        }
+    }
+    xhr.open("GET", "process.php?usuarioIdActualizado=" + usuarioId + "&nombreActualizado=" + nombreActualizado, true);
+    xhr.send();
+}
