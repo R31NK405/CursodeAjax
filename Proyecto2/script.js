@@ -53,3 +53,21 @@ function actualizarUsuario(usuarioId) {
     xhr.open("GET", "process.php?usuarioIdActualizado=" + usuarioId + "&nombreActualizado=" + nombreActualizado, true);
     xhr.send();
 }
+
+function eliminarUsuario(usuarioId) {
+    var response = confirm("Seguro de que quieres eliminar a este usuario???");
+    if(response === true){
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                getAjax();
+            }
+        }
+        xhr.open("GET", "process.php?usuarioIdEliminado=" + usuarioId);
+        xhr.send();
+    }
+}

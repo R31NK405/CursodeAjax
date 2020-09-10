@@ -5,6 +5,7 @@ require 'conexion.php';
 $personas =$_GET["personas"];
 $usuarioIdActualizado=$_GET['usuarioIdActualizado'];
 $nombreActualizado=$_GET['nombreActualizado'];
+$usuarioIdEliminado=$_GET['usuarioIdEliminado'];
 //$personas = empty($_GET["personas"]) ? ""  : $_GET["personas"];
 
 $nombreId="nombreId";
@@ -30,7 +31,7 @@ if ($personas == "personas") {
         $tabla.='<td id="'.$nombreId.$row['id'].'">'.$row['nombre'].'</td>';
         $tabla.='<td id="'.$nacionalidadId.$row['id'].'">'.$row['nacionalidad'].'</td>';
         $tabla .='<td><input type="button" id="'.$row['id'].'" onclick="editarUsuarios(this.id)" value="Editar" class="btn btn-default"></td>';
-        $tabla .='<td><input type="button" id="'.$eliminar.$row['id'].'" value="Eliminar" class="btn btn-danger"></td>';
+        $tabla .='<td><input type="button" id="'.$eliminar.$row['id'].'" onclick="eliminarUsuario('.$row['id'].')"value="Eliminar" class="btn btn-danger"></td>';
         $tabla .='<td><input type="button"  id="'.$actualizar.$row['id'].'" onclick="actualizarUsuario('.$row['id'].')" value="Actualizar" class="btn btn-primary" style=display:none;></td>';
         $tabla .='</tr>';
     }
@@ -44,6 +45,10 @@ if ($personas == "personas") {
 if (!empty($nombreActualizado)) {
     $cliente = mysqli_real_escape_string($con, $nombreActualizado);
     $result=mysqli_query($con, "UPDATE usuarios SET nombre = '$cliente' WHERE id = $usuarioIdActualizado");
+    mysqli_close($con);
+}
+if(!empty($usuarioIdEliminado)){
+    $result = mysqli_query($con, "DELETE FROM usuarios WHERE id = $usuarioIdEliminado");
     mysqli_close($con);
 }
 ?>
