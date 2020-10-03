@@ -36,6 +36,7 @@ if ($personas == "personas") {
         $tabla .='</tr>';
     }
     $tabla .='</table>';
+    $tabla .='<button onclick="ejecutarVentana()" class="btn btn-primary">Agregar usuario</button><br><br>';
     $tabla .='</div>';
     echo $tabla;
     mysqli_close($con);

@@ -1,4 +1,6 @@
-var result = document.getElementById("info");
+
+
+ var result = document.getElementById("info");
 
 function getAjax() {
     var xhr;
@@ -54,6 +56,7 @@ function actualizarUsuario(usuarioId) {
     xhr.send();
 }
 
+
 function eliminarUsuario(usuarioId) {
     var response = confirm("Seguro de que quieres eliminar a este usuario???");
     if(response === true){
@@ -71,3 +74,21 @@ function eliminarUsuario(usuarioId) {
         xhr.send();
     }
 }
+
+var overlay = document.getElementById("overlay");
+var ventana = document.getElementById("ventana");
+
+function ejecutarVentana() {
+    overlay.style.opacity = .5;
+
+    if (overlay.style.display == "block") {
+        overlay.style.display = "none";
+        ventana.style.display = "none";
+    }else{
+        overlay.style.display = "block";
+        ventana.style.display = "block";
+    }
+    
+document.getElementById("nombreId").value="";
+document.getElementById("nacionalidadId").value="";
+}   
