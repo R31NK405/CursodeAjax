@@ -1,4 +1,5 @@
 <?php
+//conexion a la base de datos usando MySQLI
 $host="localhost";
 $user="root";
 $pass="";

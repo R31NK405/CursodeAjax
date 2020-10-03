@@ -7,13 +7,18 @@ $usuarioIdActualizado=$_GET['usuarioIdActualizado'];
 $nombreActualizado=$_GET['nombreActualizado'];
 $usuarioIdEliminado=$_GET['usuarioIdEliminado'];
 //$personas = empty($_GET["personas"]) ? ""  : $_GET["personas"];
+$nombre=$_GET['nombre'];
+$nacionalidad=$_GET['nacionalidad'];
 
+//Variables para identificar la informacion en la BD
 $nombreId="nombreId";
 $nacionalidadId="nacionalidadId";
 $actualizar="actualizar";
 $eliminar="eliminar";
 $tabla="";
 
+
+//Se crea la tabla con los usuarios extraidos de una base de datos.
 if ($personas == "personas") {
    $result=mysqli_query($con, "SELECT * FROM usuarios");
    $tabla .='<div class="container">';
@@ -50,6 +55,10 @@ if (!empty($nombreActualizado)) {
 }
 if(!empty($usuarioIdEliminado)){
     $result = mysqli_query($con, "DELETE FROM usuarios WHERE id = $usuarioIdEliminado");
+    mysqli_close($con);
+}
+if(!empty($nombre)&& !empty($nacionalidad)){
+    $result = mysqli_query($con, "INSERT INTO  usuarios VALUES('','$nombre', '$nacionalidad')");
     mysqli_close($con);
 }
 ?>
