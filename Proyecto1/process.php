@@ -6,7 +6,7 @@ $nombre = $_GET["nombre"];
 if(!empty($nombre)){
  $cliente = mysqli_real_escape_string($con, $nombre);
  $resultado = mysqli_query($con, "SELECT * FROM persona WHERE nombre LIKE '%".$cliente."%'");
-
+//Fila para mostrar los usuarios en una bd
  while($row = mysqli_fetch_assoc($resultado))
  {
     echo '<div class="myClass" onclick="toggleOverlay(this)">' .$row['nombre'] . '</div>';
